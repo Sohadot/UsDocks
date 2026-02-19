@@ -30,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* ── HERO ── */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -46,9 +45,9 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('Usdocks.png');
+    background-image: url('USDocks.png');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     z-index: 0;
   }
   .hero-bg::after {
@@ -57,21 +56,17 @@
     inset: 0;
     background:
       radial-gradient(ellipse 100% 60% at 50% 100%, rgba(6,11,22,0.97) 0%, rgba(6,11,22,0.5) 60%, transparent 100%),
-      linear-gradient(180deg, rgba(6,11,22,0.6) 0%, rgba(6,11,22,0.2) 40%, rgba(6,11,22,0.7) 100%);
+      linear-gradient(180deg, rgba(6,11,22,0.6) 0%, rgba(6,11,22,0.45) 40%, rgba(6,11,22,0.7) 100%);
   }
 
-  /* Animated dock silhouette */
-  .dock-scene {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 45%;
-    z-index: 1;
-    opacity: 0.18;
+  @media (max-width: 768px) {
+    .hero-bg {
+      background-position: center 30%;
+      background-size: cover;
+    }
+    .hero { min-height: 100svh; }
   }
 
-  /* Grid lines overlay */
   .grid-overlay {
     position: absolute;
     inset: 0;
@@ -82,7 +77,6 @@
     background-size: 60px 60px;
   }
 
-  /* Glowing horizon line */
   .horizon {
     position: absolute;
     bottom: 38%;
@@ -128,14 +122,8 @@
     animation: fadeUp 1s ease 0.5s forwards;
   }
 
-  .domain-name span {
-    color: var(--gold);
-  }
-
-  .domain-ext {
-    color: var(--mist);
-    font-weight: 400;
-  }
+  .domain-name span { color: var(--gold); }
+  .domain-ext { color: var(--mist); font-weight: 400; }
 
   .tagline {
     font-family: 'Barlow Condensed', sans-serif;
@@ -149,10 +137,7 @@
     animation: fadeUp 1s ease 0.7s forwards;
   }
 
-  .tagline strong {
-    color: var(--gold-light);
-    font-weight: 600;
-  }
+  .tagline strong { color: var(--gold-light); font-weight: 600; }
 
   .stat-row {
     display: flex;
@@ -164,9 +149,7 @@
     animation: fadeUp 1s ease 0.9s forwards;
   }
 
-  .stat-item {
-    text-align: center;
-  }
+  .stat-item { text-align: center; }
 
   .stat-number {
     font-family: 'Playfair Display', serif;
@@ -185,11 +168,7 @@
     margin-top: 6px;
   }
 
-  .stat-divider {
-    width: 1px;
-    background: var(--steel);
-    align-self: stretch;
-  }
+  .stat-divider { width: 1px; background: var(--steel); align-self: stretch; }
 
   .cta-group {
     display: flex;
@@ -239,17 +218,13 @@
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
   }
 
-  .btn-secondary:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── STATEMENT SECTION ── */
   .statement {
     padding: 100px 24px;
     max-width: 800px;
@@ -277,10 +252,7 @@
     margin-bottom: 32px;
   }
 
-  .statement-headline em {
-    color: var(--gold);
-    font-style: italic;
-  }
+  .statement-headline em { color: var(--gold); font-style: italic; }
 
   .statement-body {
     font-size: 17px;
@@ -289,10 +261,43 @@
     font-weight: 300;
   }
 
-  .statement-body strong {
-    color: var(--white);
-    font-weight: 400;
-< truncated lines 295-342 >
+  .statement-body strong { color: var(--white); font-weight: 400; }
+
+  .metrics {
+    padding: 80px 24px;
+    background: linear-gradient(180deg, transparent, rgba(10,25,60,0.4), transparent);
+  }
+
+  .metrics-inner { max-width: 1100px; margin: 0 auto; }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .metric-card {
+    background: var(--deep);
+    padding: 48px 32px;
+    transition: background 0.3s;
+  }
+
+  .metric-card:hover { background: var(--navy); }
+  .metric-icon { font-size: 28px; margin-bottom: 20px; opacity: 0.7; }
+
+  .metric-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .metric-title {
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 3px;
@@ -301,18 +306,9 @@
     margin-bottom: 12px;
   }
 
-  .metric-desc {
-    font-size: 13px;
-    color: var(--dim);
-    line-height: 1.6;
-  }
+  .metric-desc { font-size: 13px; color: var(--dim); line-height: 1.6; }
 
-  /* ── AUTHORITY SECTION ── */
-  .authority {
-    padding: 100px 24px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  .authority { padding: 100px 24px; max-width: 900px; margin: 0 auto; }
 
   .authority-grid {
     display: grid;
@@ -326,10 +322,7 @@
     .stat-divider { display: none; }
   }
 
-  .authority-item {
-    border-left: 2px solid rgba(201,168,76,0.3);
-    padding-left: 24px;
-  }
+  .authority-item { border-left: 2px solid rgba(201,168,76,0.3); padding-left: 24px; }
 
   .authority-item h3 {
     font-family: 'Barlow Condensed', sans-serif;
@@ -341,13 +334,8 @@
     margin-bottom: 12px;
   }
 
-  .authority-item p {
-    font-size: 15px;
-    color: var(--mist);
-    line-height: 1.7;
-  }
+  .authority-item p { font-size: 15px; color: var(--mist); line-height: 1.7; }
 
-  /* ── ACQUISITION SECTION ── */
   .acquisition {
     padding: 100px 24px;
     text-align: center;
@@ -356,10 +344,7 @@
     background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03), transparent);
   }
 
-  .acquisition-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
+  .acquisition-inner { max-width: 680px; margin: 0 auto; }
 
   .acquisition h2 {
     font-family: 'Playfair Display', serif;
@@ -370,12 +355,7 @@
     line-height: 1.1;
   }
 
-  .acquisition p {
-    font-size: 16px;
-    color: var(--mist);
-    line-height: 1.8;
-    margin-bottom: 48px;
-  }
+  .acquisition p { font-size: 16px; color: var(--mist); line-height: 1.8; margin-bottom: 48px; }
 
   .acquisition-note {
     font-family: 'Barlow Condensed', sans-serif;
@@ -386,11 +366,7 @@
     margin-top: 32px;
   }
 
-  /* ── FOOTER ── */
-  footer {
-    padding: 40px 24px;
-    text-align: center;
-  }
+  footer { padding: 40px 24px; text-align: center; }
 
   footer p {
     font-family: 'Barlow Condensed', sans-serif;
@@ -400,17 +376,6 @@
     text-transform: uppercase;
   }
 
-  /* ── DOCK SVG ── */
-  .crane-line {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw 3s ease 1.5s forwards;
-  }
-  @keyframes draw {
-    to { stroke-dashoffset: 0; }
-  }
-
-  /* Floating particles */
   .particle {
     position: absolute;
     width: 2px;
@@ -429,15 +394,10 @@
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="grid-overlay"></div>
   <div class="horizon"></div>
-
-
-
-  <!-- Particles -->
   <div class="particle" style="left:15%;bottom:40%;animation-delay:0s;animation-duration:8s"></div>
   <div class="particle" style="left:30%;bottom:35%;animation-delay:2s;animation-duration:6s"></div>
   <div class="particle" style="left:70%;bottom:42%;animation-delay:4s;animation-duration:7s"></div>
@@ -445,37 +405,17 @@
 
   <div class="hero-content">
     <p class="strategic-label">Strategic Digital Asset · Premium .com Domain</p>
-
-    <h1 class="domain-name">
-      <span>US</span>Docks<span class="domain-ext">.com</span>
-    </h1>
-
-    <p class="tagline">
-      <strong>Sovereign Authority</strong> over America's Maritime Digital Identity
-    </p>
-
+    <h1 class="domain-name"><span>US</span>Docks<span class="domain-ext">.com</span></h1>
+    <p class="tagline"><strong>Sovereign Authority</strong> over America's Maritime Digital Identity</p>
     <div class="stat-row">
-      <div class="stat-item">
-        <div class="stat-number">$3T+</div>
-        <div class="stat-label">Annual Port Trade Value</div>
-      </div>
+      <div class="stat-item"><div class="stat-number">$3T+</div><div class="stat-label">Annual Port Trade Value</div></div>
       <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-number">360+</div>
-        <div class="stat-label">U.S. Commercial Ports</div>
-      </div>
+      <div class="stat-item"><div class="stat-number">360+</div><div class="stat-label">U.S. Commercial Ports</div></div>
       <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-number">28M</div>
-        <div class="stat-label">TEUs Annually</div>
-      </div>
+      <div class="stat-item"><div class="stat-number">28M</div><div class="stat-label">TEUs Annually</div></div>
       <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-number">#1</div>
-        <div class="stat-label">Global Economy</div>
-      </div>
+      <div class="stat-item"><div class="stat-number">#1</div><div class="stat-label">Global Economy</div></div>
     </div>
-
     <div class="cta-group">
       <a href="mailto:Agent@Sohadot.com" class="btn-primary">Strategic Inquiry</a>
       <a href="#acquisition" class="btn-secondary">Acquisition Terms</a>
@@ -483,16 +423,12 @@
   </div>
 </section>
 
-<!-- STATEMENT -->
 <section class="statement">
   <p class="section-label">The Asset</p>
-  <h2 class="statement-headline">
-    The entity that owns <em>USDocks.com</em><br>owns the digital gateway<br>to American maritime infrastructure.
-  </h2>
+  <h2 class="statement-headline">The entity that owns <em>USDocks.com</em><br>owns the digital gateway<br>to American maritime infrastructure.</h2>
   <p class="statement-body">
     The United States moves <strong>over $3 trillion in goods</strong> through its ports every year.
-    Los Angeles, Long Beach, New York/New Jersey — these are the arteries of global commerce.
-    <br><br>
+    Los Angeles, Long Beach, New York/New Jersey — these are the arteries of global commerce.<br><br>
     In an era where digital identity precedes physical presence,
     <strong>USDocks.com</strong> is not merely a domain.
     It is the singular, authoritative name for U.S. port operations, logistics platforms,
@@ -500,89 +436,47 @@
   </p>
 </section>
 
-<!-- METRICS -->
 <section class="metrics">
   <div class="metrics-inner">
     <p class="section-label" style="text-align:center;margin-bottom:48px">Domain Intelligence</p>
     <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-icon">⚓</div>
-        <div class="metric-value">7</div>
-        <div class="metric-title">Characters</div>
-        <div class="metric-desc">Ultra-short compound domain. Impossible to mistype, impossible to forget. Category-defining brevity.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon">🇺🇸</div>
-        <div class="metric-value">US</div>
-        <div class="metric-title">Geographic Authority</div>
-        <div class="metric-desc">The most commercially powerful geographic prefix on earth. Instant credibility in every market — domestic and international.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon">🏗️</div>
-        <div class="metric-value">Docks</div>
-        <div class="metric-title">Sector Precision</div>
-        <div class="metric-desc">The exact operational term for ports, terminals, berths, and freight infrastructure. Zero ambiguity. Maximum relevance.</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon">🌐</div>
-        <div class="metric-value">.com</div>
-        <div class="metric-title">Legacy Extension</div>
-        <div class="metric-desc">The gold standard of digital real estate. Trusted by institutions, recognized globally, irreplaceable in brand equity.</div>
-      </div>
+      <div class="metric-card"><div class="metric-icon">⚓</div><div class="metric-value">7</div><div class="metric-title">Characters</div><div class="metric-desc">Ultra-short compound domain. Impossible to mistype, impossible to forget. Category-defining brevity.</div></div>
+      <div class="metric-card"><div class="metric-icon">🇺🇸</div><div class="metric-value">US</div><div class="metric-title">Geographic Authority</div><div class="metric-desc">The most commercially powerful geographic prefix on earth. Instant credibility in every market — domestic and international.</div></div>
+      <div class="metric-card"><div class="metric-icon">🏗️</div><div class="metric-value">Docks</div><div class="metric-title">Sector Precision</div><div class="metric-desc">The exact operational term for ports, terminals, berths, and freight infrastructure. Zero ambiguity. Maximum relevance.</div></div>
+      <div class="metric-card"><div class="metric-icon">🌐</div><div class="metric-value">.com</div><div class="metric-title">Legacy Extension</div><div class="metric-desc">The gold standard of digital real estate. Trusted by institutions, recognized globally, irreplaceable in brand equity.</div></div>
     </div>
   </div>
 </section>
 
-<!-- AUTHORITY -->
 <section class="authority">
   <p class="section-label">Strategic Value</p>
   <h2 class="statement-headline" style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--white);line-height:1.3">
     Built for Visionary Enterprises.<br><em style="color:var(--gold);font-style:italic">Not the average buyer.</em>
   </h2>
-
   <div class="authority-grid">
-    <div class="authority-item">
-      <h3>Global Port Operators</h3>
-      <p>PSA International, APM Terminals, DP World, CMA CGM Terminals, TIL — entities expanding U.S. presence require a digital identity that matches their operational scale.</p>
-    </div>
-    <div class="authority-item">
-      <h3>Gulf & Asian Conglomerates</h3>
-      <p>Sovereign wealth-backed logistics enterprises entering the American market need an authoritative brand anchor. USDocks.com provides instant category ownership.</p>
-    </div>
-    <div class="authority-item">
-      <h3>Logistics Technology Platforms</h3>
-      <p>Next-generation freight platforms, port management SaaS, and supply chain intelligence companies building U.S.-centric infrastructure.</p>
-    </div>
-    <div class="authority-item">
-      <h3>Defensive Acquisition</h3>
-      <p>For any enterprise operating in U.S. maritime logistics — owning this domain is a strategic imperative. The cost of not owning it is measurably greater.</p>
-    </div>
+    <div class="authority-item"><h3>Global Port Operators</h3><p>PSA International, APM Terminals, DP World, CMA CGM Terminals, TIL — entities expanding U.S. presence require a digital identity that matches their operational scale.</p></div>
+    <div class="authority-item"><h3>Gulf & Asian Conglomerates</h3><p>Sovereign wealth-backed logistics enterprises entering the American market need an authoritative brand anchor. USDocks.com provides instant category ownership.</p></div>
+    <div class="authority-item"><h3>Logistics Technology Platforms</h3><p>Next-generation freight platforms, port management SaaS, and supply chain intelligence companies building U.S.-centric infrastructure.</p></div>
+    <div class="authority-item"><h3>Defensive Acquisition</h3><p>For any enterprise operating in U.S. maritime logistics — owning this domain is a strategic imperative. The cost of not owning it is measurably greater.</p></div>
   </div>
 </section>
 
-<!-- ACQUISITION -->
 <section class="acquisition" id="acquisition">
   <div class="acquisition-inner">
     <p class="section-label">Acquisition</p>
     <h2>Institutional<br>Acquisition Only</h2>
-    <p>
-      This asset is available exclusively through private negotiation with qualified strategic parties.
-      No public auction. No automated platforms.
-      Direct transfer via secure escrow upon agreement.
-    </p>
+    <p>This asset is available exclusively through private negotiation with qualified strategic parties. No public auction. No automated platforms. Direct transfer via secure escrow upon agreement.</p>
     <div class="cta-group" style="opacity:1;animation:none">
       <a href="mailto:Agent@Sohadot.com" class="btn-primary">Private Negotiation</a>
     </div>
-    <p class="acquisition-note" style="margin-top:32px">
-      Guaranteed Transfer · Secure Escrow · Worldwide Delivery
-    </p>
+    <p class="acquisition-note" style="margin-top:32px">Guaranteed Transfer · Secure Escrow · Worldwide Delivery</p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>USDocks.com · Premium Maritime Domain Asset · Strategic Brand Acquisition</p>
 </footer>
 
 </body>
 </html>
+```
